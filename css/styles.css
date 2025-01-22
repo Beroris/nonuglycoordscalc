@@ -1,0 +1,51 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.coord-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 250px;
+}
+
+.coord-box h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.coord-box label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.coord-box input[type="number"] {
+    width: calc(100% - 18px); /* Adjust for the padding and border */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #f9f9f9; /* Add a slightly different background */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Add a subtle inner shadow */
+}
+
+.coord-box input[type="number"]:focus {
+    outline: none; /* Remove default outline */
+    border-color: #aaa; /* Change border color on focus */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 0 5px rgba(170, 170, 170, 0.2);
+}
