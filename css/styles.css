@@ -2,6 +2,13 @@ body {
     font-family: sans-serif;
     margin: 20px;
     background-color: #f0f0f0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #212121;
+    color: #fff;
 }
 
 .container {
@@ -19,33 +26,127 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     flex: 1;
     min-width: 250px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s;
+}
+
+.coord-box.dark-mode{
+    background-color: #404040;
 }
 
 .coord-box h2 {
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     text-align: center;
+    position: relative;
+    z-index: 1;
+    font-size: 2.0em;
+    padding: 20px 0;
+}
+
+/* Background image for "Overworld" title */
+#overworld-box h2::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background-image: url('../img/overworld.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    z-index: -1;
+    border-radius: 0;
+}
+
+/* Background image for "Nether" title */
+#nether-box h2::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background-image: url('../img/nether.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    z-index: -1;
+    border-radius: 0;
 }
 
 .coord-box label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 30px;
+    font-weight: bold;
 }
 
 .coord-box input[type="number"] {
-    width: calc(100% - 18px); /* Adjust for the padding and border */
+    width: calc(100% - 18px);
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
-    background-color: #f9f9f9; /* Add a slightly different background */
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Add a subtle inner shadow */
+    background-color: #f9f9f9;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
+.coord-box.dark-mode input[type="number"]{
+    background-color: #343434;
+    color: #fff;
+}
+
+
 .coord-box input[type="number"]:focus {
-    outline: none; /* Remove default outline */
-    border-color: #aaa; /* Change border color on focus */
+    outline: none;
+    border-color: #aaa;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 0 5px rgba(170, 170, 170, 0.2);
+    
+}
+
+
+/* Button styling */
+#darkModeToggle {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    font-size: 2em;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: block;
+    margin: 20px auto;
+    transition: background-color 0.3s, color 0.3s;
+    color: inherit;
+}
+
+#darkModeToggle:hover {
+    color: #444;
+}
+
+#darkModeToggle i{
+        transition: transform 0.3s ease;
+}
+
+#darkModeToggle .fa-sun {
+    display: inline;
+}
+#darkModeToggle .fa-moon {
+    display: none;
+}
+
+body.dark-mode #darkModeToggle .fa-sun {
+    display: none;
+}
+body.dark-mode #darkModeToggle .fa-moon {
+    display: inline;
+}
+
+/* Highlight for darkmode */
+body.dark-mode .coord-box input[type="number"]:focus{
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 0 5px rgba(255, 255, 255, 0.2);
+      border-color: #fff;
 }
