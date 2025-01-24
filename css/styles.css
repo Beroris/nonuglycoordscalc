@@ -17,6 +17,7 @@ body.dark-mode {
     gap: 20px;
     max-width: 800px;
     margin: 20px auto;
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
 }
 
 .coord-box {
@@ -29,7 +30,15 @@ body.dark-mode {
     position: relative;
     overflow: hidden;
     transition: background-color 0.3s;
+    box-sizing: border-box; /* Added to include padding and border in width calculation */
+
 }
+/* Set a max-width for better mobile experience */
+.coord-box {
+    max-width: 100%; /* Ensure the box is not larger than its container */
+}
+
+
 
 .coord-box.dark-mode{
     background-color: #404040;
@@ -183,7 +192,8 @@ input[type="number"] {
     background-color: #f9f9f9; /* Match the input color */
      box-sizing: border-box; /*Keep the padding the same*/
     box-shadow: none; /*remove unfocused shadow*/
-    transition: background-color 0.3s, color 0.3s;
+        transition: background-color 0.3s, color 0.3s;
+
 }
 body.dark-mode .save-container input[type="text"]{
        background-color: #343434;
@@ -192,7 +202,7 @@ body.dark-mode .save-container input[type="text"]{
 .save-container input[type="text"]:focus {
     outline: none; /* Remove the focus outline */
     border-color: transparent; /*remove focus color */
-      box-shadow: none;
+    box-shadow: none;
 }
 
 .save-container button {
@@ -226,19 +236,27 @@ body.dark-mode .save-container input[type="text"]{
   background-color: #f9f9f9;
   justify-content: space-between;
   transition: background-color 0.3s, color 0.3s;
-    border: none; /* Removed the border */
+    border: none;
+      box-sizing: border-box; /* Add the box-sizing to ensure padding is not cut off */
+
 }
 body.dark-mode .saved-coord-item {
   background-color: #404040;
   color: #fff;
 
 }
+/* Ensure saved items are not cut off on mobile */
+.saved-coord-item{
+     max-width: 100%; /* Take full width of the page*/
+}
+
 
 .saved-coord-item .coord-display {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
      gap: 20px;
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
 }
   .saved-coord-item .coord-display > div {
         display: flex;
@@ -252,6 +270,8 @@ body.dark-mode .saved-coord-item {
 
 .saved-coord-item .coord-display p {
     margin: 0;
+        white-space: nowrap; /* Prevent coordinate content from wrapping*/
+
 }
 
 .saved-coord-item .delete-btn {
