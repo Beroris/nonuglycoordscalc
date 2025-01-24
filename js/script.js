@@ -49,10 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
                  inputBox.classList.add('dark-mode')
             });
               darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-               updateSavedCoordStyle();
+                updateSavedCoordStyle();
         } else {
             darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-               updateSavedCoordStyle();
+             updateSavedCoordStyle();
         }
 
       }
@@ -132,11 +132,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
      saveCoordsButton.addEventListener('click', function() {
         const saveName = saveNameInput.value.trim();
-        if (saveName === '') {
+          if (saveName === '') {
             alert('Please enter a save name.');
             return;
         }
-
+       if (
+          overworldX.value === '' ||
+          overworldY.value === '' ||
+          overworldZ.value === '' ||
+          netherX.value === '' ||
+           netherY.value === '' ||
+          netherZ.value === ''
+        ) {
+            alert('Please enter all coordinate values.');
+            return;
+        }
         const savedData = {
             name: saveName,
             overworld: {

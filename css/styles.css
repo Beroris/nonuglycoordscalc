@@ -196,7 +196,7 @@ body.dark-mode .save-container input[type="text"]{
 }
 
 .save-container button {
-    background-color: #4caf50;
+    background-color: #209cc2;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -206,7 +206,7 @@ body.dark-mode .save-container input[type="text"]{
 }
 
 .save-container button:hover{
-    background-color: #45a049;
+    background-color: #127999;
 }
 
 #savedCoordsList {
@@ -272,5 +272,5 @@ body.dark-mode .saved-coord-item {
     color: #fff;
 }
  body.dark-mode .saved-coord-item .delete-btn:hover {
-    background-color: #f44336;
+    background-color: #a32b22;
  }
