@@ -7,7 +7,7 @@ body {
 
 /* Dark mode styles */
 body.dark-mode {
-    background-color: #212121;
+    background-color: #111111;
     color: #fff;
 }
 
@@ -30,18 +30,15 @@ body.dark-mode {
     position: relative;
     overflow: hidden;
     transition: background-color 0.3s;
-    box-sizing: border-box; /* Added to include padding and border in width calculation */
-
+    box-sizing: border-box;
 }
 /* Set a max-width for better mobile experience */
 .coord-box {
-    max-width: 100%; /* Ensure the box is not larger than its container */
+    max-width: 100%;
 }
 
-
-
 .coord-box.dark-mode{
-    background-color: #404040;
+    background-color: #222222;
 }
 
 .coord-box h2 {
@@ -93,36 +90,56 @@ body.dark-mode {
 }
 
 .coord-box label {
-    display: block;
-    margin-bottom: 5px;
-    margin-top: 30px;
-    font-weight: bold;
+   display: block;
+   font-weight: bold;
+   margin-bottom: 5px;
+}
+
+/* Coordinate input container */
+.coord-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    gap: 5px;
+}
+.coord-input-container > input {
+  margin-top: 5px;
+}
+/* Target Z-coord input container*/
+.coord-input-container:last-of-type {
+      margin-bottom: 5px;
 }
 
 .coord-box input[type="number"] {
-    width: calc(100% - 18px);
-    padding: 8px;
-    margin-bottom: 0px;
-    border: 1px solid transparent; /* Remove the unfocused border*/
+    width: 100%;
+    padding: 10px;
+    border: 1px solid transparent;
     border-radius: 4px;
     box-sizing: border-box;
     background-color: #f9f9f9;
-    box-shadow: none; /*remove unfocused shadow*/
-    font-size: 1.1em;
+    box-shadow: none;
+      font-size: 0.9em;
+    overflow: hidden;
 }
 
 .coord-box.dark-mode input[type="number"]{
-    background-color: #343434;
+    background-color: #131313;
     color: #fff;
-    font-size: 1.1em;
+      font-size: 0.9em;
 }
 
 
 .coord-box input[type="number"]:focus {
     outline: none;
-    border-color: transparent;/* Remove the border on focus*/
-    box-shadow: none; /* Remove the shadow on focus */
+    border-color: rgba(170, 170, 170, 0.3); /* Subtle outline using border color with opacity*/
+    box-shadow: none;
 }
+
+body.dark-mode .coord-box input[type="number"]:focus{
+    border-color:  rgba(71, 71, 71, 0.7); /* Sublte black outline for dark mode focus */
+}
+
 
 /* Button styling */
 #darkModeToggle {
@@ -163,7 +180,7 @@ body.dark-mode #darkModeToggle .fa-moon {
 /* Highlight for darkmode */
 body.dark-mode .coord-box input[type="number"]:focus{
       box-shadow: none; /* Remove the shadow in dark mode on focus */
-      border-color: transparent;
+
 }
 
 
@@ -187,26 +204,28 @@ input[type="number"] {
 .save-container input[type="text"]{
     margin: 10px;
     padding: 8px;
-    border: 1px solid transparent; /* Make the border transparent */
+    border: 1px solid transparent;
     border-radius: 4px;
-    background-color: #f9f9f9; /* Match the input color */
-     box-sizing: border-box; /*Keep the padding the same*/
-    box-shadow: none; /*remove unfocused shadow*/
+    background-color: #f9f9f9;
+     box-sizing: border-box;
+    box-shadow: none;
         transition: background-color 0.3s, color 0.3s;
+         font-size: 0.9em;
 
 }
 body.dark-mode .save-container input[type="text"]{
-       background-color: #343434;
+       background-color: #131313;
        color: #fff;
+       border-color:  rgb(39, 39, 39);
+       border-width: 3px;
 }
 .save-container input[type="text"]:focus {
-    outline: none; /* Remove the focus outline */
-    border-color: transparent; /*remove focus color */
+    outline: none;
     box-shadow: none;
 }
 
 .save-container button {
-    background-color: #209cc2;
+    background-color: #057496;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -216,7 +235,7 @@ body.dark-mode .save-container input[type="text"]{
 }
 
 .save-container button:hover{
-    background-color: #127999;
+    background-color: #005b77;
 }
 
 #savedCoordsList {
@@ -237,17 +256,13 @@ body.dark-mode .save-container input[type="text"]{
   justify-content: space-between;
   transition: background-color 0.3s, color 0.3s;
     border: none;
-      box-sizing: border-box; /* Add the box-sizing to ensure padding is not cut off */
+      box-sizing: border-box;
 
 }
 body.dark-mode .saved-coord-item {
-  background-color: #404040;
+  background-color: #222222;
   color: #fff;
 
-}
-/* Ensure saved items are not cut off on mobile */
-.saved-coord-item{
-     max-width: 100%; /* Take full width of the page*/
 }
 
 
@@ -256,7 +271,7 @@ body.dark-mode .saved-coord-item {
     flex-direction: row;
     align-items: flex-start;
      gap: 20px;
-    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+    flex-wrap: wrap;
 }
   .saved-coord-item .coord-display > div {
         display: flex;
@@ -270,12 +285,11 @@ body.dark-mode .saved-coord-item {
 
 .saved-coord-item .coord-display p {
     margin: 0;
-        white-space: nowrap; /* Prevent coordinate content from wrapping*/
-
+    white-space: nowrap;
 }
 
 .saved-coord-item .delete-btn {
-    background-color: #f44336;
+    background-color: rgb(172, 11, 0);
     color: white;
     border: none;
     padding: 5px 10px;
@@ -285,12 +299,12 @@ body.dark-mode .saved-coord-item {
     transition: background-color 0.3s;
 }
 .saved-coord-item .delete-btn:hover {
-    background-color: #da190b;
+    background-color: #850900;
 }
  body.dark-mode .saved-coord-item .delete-btn {
-    background-color: #da190b;
+    background-color: #911108;
     color: #fff;
 }
  body.dark-mode .saved-coord-item .delete-btn:hover {
-    background-color: #a32b22;
+    background-color: #6e0600;
  }
